@@ -1,12 +1,26 @@
-import React from 'react';
+import React from "react";
+import { increase } from "./redux/counter/counterAction";
+import { connect } from "react-redux";
 
-const CounterComponent = () => {
-    return (
-        <div>
-            <h1>Number:</h1>
-            <button>Increase</button>
-        </div>
-    );
+const CounterComponent = (props) => {
+  return (
+    <div>
+      <h1>Number:{props.counter}</h1>
+      <button onClick={props.increase}>Increase</button>
+    </div>
+  );
 };
 
-export default CounterComponent;
+const mapStateToProps = (state) => {
+  return {
+    counter: state.counter,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increase: () => dispatch(increase()),
+  };
+};
+
+export default connect(mapDispatchToProps, mapStateToProps)(CounterComponent);

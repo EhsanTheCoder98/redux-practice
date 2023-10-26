@@ -1,11 +1,12 @@
-import React from 'react';
-import CounterComponent from './CounterComponent';
-
+import React from "react";
+import CounterComponent from "./CounterComponent";
+import { Provider } from "react-redux";
+import store from "./redux/store"
 const App = () => {
   return (
-    <div>
+    <Provider store={store}>
       <CounterComponent />
-    </div>
+    </Provider>
   );
 };
 

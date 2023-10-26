@@ -1,3 +1,3 @@
-export const increase = ()=>{
+export const increase = () => {
     return {type:"INCREASE"}
 }
